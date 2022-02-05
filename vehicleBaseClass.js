@@ -9,28 +9,30 @@ class Vehicle {
         this.mileage = mileage;
         this.started = false;
         this.numberOfWheels = 0;
+        this.fuel = 0;
     }
 
     start() {
         if (this.fuel > 0) {
-            return this.started = true;
             console.log("engine started...!!!");
+            this.started = true;  
         } else {
-            return this.started = false;
             console.log("engine cannot start...");
+            this.started = false;  
         }
+        return(this.started)
     }
     accelerate() {
         if (this.started) {
             if (this.fuel > 0) {
-                console.log(this.speed += 1);
+                console.log("Speed = " + (this.speed += 1));
                 this.fuel = this.fuel - 1;
             } else {
                 console.log("out of fuel.");
                 this.stop();
             }
         } else {
-            alert("You need to start the engine first.");
+            alert("You need to start the engine first - 1.");
         }
     }
     decelerate() {
@@ -48,11 +50,16 @@ class Vehicle {
                 this.stop();
             }
         } else {
-            alert("You need to start the engine first.");
+            alert("You need to start the engine first - 2.");
         }
     }
     stop() {
         this.started = false;
+    }
+
+    addFuel(gallons) {
+        console.log("Adding " + gallons + " gallons")
+        this.fuel = gallons;
     }
 
     drive() {
@@ -76,7 +83,7 @@ class Vehicle {
         if (this.numberOfWheels == 8 && 8 == wheels) {
             console.log(this.model + " " + this.make + " is a Truck");
         } else if (this.numberOfWheels == 4 && 4 == wheels) {
-            console.log(this.model + " " + this.make + " is a CAr");
+            console.log(this.model + " " + this.make + " is a Car");
         } else if (this.numberOfWheels == 2 && 2 == wheels) {
             console.log(this.model + " " + this.make + " is a Bike");
         } else {
@@ -85,7 +92,8 @@ class Vehicle {
     }
 }
 
-//This exports things you want to use from this "module", more info in readme
-module.exports = {
-    Vehicle
-}
+
+
+//export const namex = 'square';
+
+/*module.exports = {Vehicle};*/
